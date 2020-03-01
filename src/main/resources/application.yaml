@@ -1,0 +1,32 @@
+
+spring:
+  profiles:
+    active:
+    - default
+  application:
+    name: feature-toggles
+  output:
+    ansi:
+      enabled: always
+
+logging:
+  level:
+    # Enabling trace for app specific logging.
+    org.springframework: INFO
+    org.springframework.web: INFO
+    org.springframework.boot: INFO
+
+
+
+application:
+  security:
+    users:
+      - username: admin
+        password: password
+        role: ADMIN
+      - username: developer
+        password: password
+        role: DEVELOPER
+      - username: quality
+        password: password
+        role: QA
