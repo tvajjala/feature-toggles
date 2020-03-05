@@ -25,6 +25,167 @@
     <!-- Theme CSS -->
     <link href="/static/custom.css" rel="stylesheet">
 
+
+    <style type="text/css">
+
+
+#P{
+  width: 25px;
+  height: 25px;
+  background-color: orange;
+}
+
+#R{
+  width: 25px;
+  height: 25px;
+  background-color: black;
+}
+
+#E{
+  width: 25px;
+  height: 25px;
+  background-color: green;
+}
+
+#O{
+  width: 25px;
+  height: 25px;
+  background-color: red;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </style>
+
 </head>
 
 <body id="page-top">
@@ -73,6 +234,10 @@
 
                 </th>
 
+                <th class="th-sm">TYPE
+
+                </th>
+
                 <th class="th-sm">CHANNEL
 
                 </th>
@@ -91,6 +256,14 @@
                 <td th:text="${toggle.id}"/>
 
                 <td th:text="${toggle.toggleName}"/>
+
+                <td>
+                    <div class="rounded-circle text-white text-center text-bold" th:id="${toggle.toggleType}"
+                         data-toggle="tooltip" data-placement="right" th:title="${toggle.toggleType.type}">
+                        <label th:text="${toggle.toggleType}"/>
+                    </div>
+                </td>
+
 
                 <td th:text="${toggle.channel}"/>
 
@@ -153,6 +326,208 @@ $('.custom-control-input').change(function() {
       alert($(this).prop('id') + " "+$(this).prop('checked'));
 
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

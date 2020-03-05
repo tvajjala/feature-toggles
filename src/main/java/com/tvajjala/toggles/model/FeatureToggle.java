@@ -15,16 +15,19 @@ public class FeatureToggle implements Serializable {
 
     private String channel;
 
+    private ToggleType toggleType;
+
 
     public FeatureToggle() {
 
     }
 
-    public FeatureToggle(final Integer id, final String toggleName, final Boolean enabled, final String channel) {
+    public FeatureToggle(final Integer id, final String toggleName, final Boolean enabled, final String channel, final ToggleType toggleType) {
         this.id = id;
         this.toggleName = toggleName;
         this.enabled = enabled;
         this.channel = channel;
+        this.toggleType = toggleType;
     }
 
 
@@ -66,5 +69,13 @@ public class FeatureToggle implements Serializable {
 
     public void setChannel(final String channel) {
         this.channel = channel;
+    }
+
+    public ToggleType getToggleType() {
+        return toggleType;
+    }
+
+    public void setToggleType(final ToggleType toggleType) {
+        this.toggleType = toggleType;
     }
 }

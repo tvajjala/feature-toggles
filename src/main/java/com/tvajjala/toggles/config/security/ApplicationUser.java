@@ -1,4 +1,4 @@
-package com.tvajjala.toggles.config;
+package com.tvajjala.toggles.config.security;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

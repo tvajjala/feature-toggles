@@ -1,5 +1,7 @@
 package com.tvajjala.toggles.config;
 
+import com.tvajjala.toggles.config.security.ApplicationSecurity;
+import com.tvajjala.toggles.config.security.CustomUserDetailService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 /**
@@ -38,13 +41,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .hasAnyAuthority("ADMIN", "DEVELOPER", "QA")
                 .and().formLogin()
 
-                .and()
-
+/*              .and()
                 .authorizeRequests()
-
                 .antMatchers("/toggles/**")
                 .hasAnyAuthority("ADMIN")
-                .and().httpBasic()
+                .and().httpBasic()*/
 
                 .and()
                 .logout()
@@ -63,7 +64,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-        return CustomPasswordEncoder.getInstance();
+
+        return new BCryptPasswordEncoder();
     }
 
     @Override

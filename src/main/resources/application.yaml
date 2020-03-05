@@ -22,11 +22,11 @@ application:
   security:
     users:
       - username: admin
-        password: password
+        password: '$2a$10$2pplRaD1nh3u96UEEhRshO3sCSsY17hBGn8Mqk4JDgYbuBgzRHZwi' #password
         role: ADMIN
       - username: developer
-        password: password
+        password: '$2a$10$D18H/9UOEFW9CBDNuFUnEuMwWX4lmXV8RpJCvOw7nyiTBaY/5pDKq' #cr@zycart00ns
         role: DEVELOPER
       - username: quality
-        password: password
+        password: '$2a$10$D18H/9UOEFW9CBDNuFUnEuMwWX4lmXV8RpJCvOw7nyiTBaY/5pDKq' #cr@zycart00ns
         role: QA

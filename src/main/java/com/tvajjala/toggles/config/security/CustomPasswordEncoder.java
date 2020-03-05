@@ -1,4 +1,4 @@
-package com.tvajjala.toggles.config;
+package com.tvajjala.toggles.config.security;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 

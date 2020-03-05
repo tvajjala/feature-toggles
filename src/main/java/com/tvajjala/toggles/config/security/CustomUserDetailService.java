@@ -1,4 +1,4 @@
-package com.tvajjala.toggles.config;
+package com.tvajjala.toggles.config.security;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,7 +22,7 @@ public class CustomUserDetailService implements UserDetailsService {
 
     public CustomUserDetailService(final List<ApplicationUser> users) {
         appUsers.putAll(users.stream().collect(Collectors.toMap(user -> user.getUsername(), user -> user)));
-        LOGGER.warn("Users {} ", users);
+        LOGGER.warn("Users {} ", appUsers);
     }
 
     @Override
@@ -32,6 +32,7 @@ public class CustomUserDetailService implements UserDetailsService {
             LOGGER.warn("User {} not found", username);
             throw new UsernameNotFoundException("User " + username + " Not found");
         }
+
         LOGGER.info("User with username {} found ", username);
         return appUsers.get(username);
     }
