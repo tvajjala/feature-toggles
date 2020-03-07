@@ -2,6 +2,7 @@ package com.tvajjala.toggles.model;
 
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.Objects;
 
 public class FeatureToggle implements Serializable {
 
@@ -77,5 +78,20 @@ public class FeatureToggle implements Serializable {
 
     public void setToggleType(final ToggleType toggleType) {
         this.toggleType = toggleType;
+    }
+
+
+    @Override
+    public boolean equals(final Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        final FeatureToggle that = (FeatureToggle) o;
+        return Objects.equals(toggleName, that.toggleName);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(toggleName);
     }
 }

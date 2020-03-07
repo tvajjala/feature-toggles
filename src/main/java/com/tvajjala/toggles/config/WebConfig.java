@@ -3,6 +3,7 @@ package com.tvajjala.toggles.config;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
@@ -31,19 +32,15 @@ public class WebConfig implements WebMvcConfigurer {
      */
     private static final Logger LOGGER = LoggerFactory.getLogger(WebConfig.class);
 
-    private static final String[] CLASSPATH_RESOURCE_LOCATIONS = {"classpath:/META-INF/resources/", "classpath:/resources/", "classpath:/static/public/",
-            "classpath:/static/public/"};
 
     @Override
     public void addViewControllers(final ViewControllerRegistry registry) {
         registry.addRedirectViewController("/", "/ui/toggle-ui");
-        // registry.addViewController("/ui/toggle-ui").setViewName("index");
     }
 
 
     @Override
     public void addResourceHandlers(final ResourceHandlerRegistry registry) {
-
         registry
                 .addResourceHandler("/static/**")
                 .addResourceLocations("classpath:/static/")
@@ -60,6 +57,7 @@ public class WebConfig implements WebMvcConfigurer {
         objectMapper.configure(SerializationFeature.INDENT_OUTPUT, true);
         objectMapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
         objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+        objectMapper.registerModule(new JavaTimeModule());
         converter.setObjectMapper(objectMapper);
         converters.add(converter);
     }
@@ -105,11 +103,8 @@ public class WebConfig implements WebMvcConfigurer {
     public ThymeleafViewResolver thymeleafViewResolver() {
         final ThymeleafViewResolver resolver = new ThymeleafViewResolver();
         resolver.setTemplateEngine(templateEngine());
-
         return resolver;
     }
-
-    //	 @formatter:on
 
 
     @Override
