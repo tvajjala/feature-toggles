@@ -2,3 +2,4 @@
 Feature toggle framework
 
 
+<image src="dashboard.png"/>
